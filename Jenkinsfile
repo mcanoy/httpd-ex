@@ -27,11 +27,11 @@ pipeline {
       steps {
         script{
           DEV_PROJECT = "${OPENSHIFT_BUILD_NAMESPACE}".reverse().drop(6).reverse()  + "-dev"
-          applyAnsibleInventory( 'dev' )
-          timeout(5) { // in minutes
-            promoteImageWithinCluster( "${CI_CD_PROJECT}/${APP_NAME}:latest",     "${DEV_PROJECT}/${APP_NAME}", "deployed" )
-            verifyDeployment("${APP_NAME}", "${DEV_PROJECT}")
-          }
+//          applyAnsibleInventory( 'dev' )
+//          timeout(5) { // in minutes
+//            promoteImageWithinCluster( "${CI_CD_PROJECT}/${APP_NAME}:latest",     "${DEV_PROJECT}/${APP_NAME}", "deployed" )
+//            verifyDeployment("${APP_NAME}", "${DEV_PROJECT}")
+ //         }
         }
       }
     }
@@ -40,11 +40,11 @@ pipeline {
       steps {
         script{
           DEMO_PROJECT = "${OPENSHIFT_BUILD_NAMESPACE}".reverse().drop(6).reverse()  + "-demo"
-          applyAnsibleInventory( 'demo' )
-          timeout(5) { // in minutes
-            promoteImageWithinCluster( "${CI_CD_PROJECT}/${APP_NAME}:latest",     "${DEMO_PROJECT}/${APP_NAME}", "deployed" )
-            verifyDeployment("${APP_NAME}", "${DEMO_PROJECT}")
-          }
+//          applyAnsibleInventory( 'demo' )
+//          timeout(5) { // in minutes
+//            promoteImageWithinCluster( "${CI_CD_PROJECT}/${APP_NAME}:latest",     "${DEMO_PROJECT}/${APP_NAME}", "deployed" )
+//            verifyDeployment("${APP_NAME}", "${DEMO_PROJECT}")
+//          }
         }
       }
     }
