@@ -1,0 +1,23 @@
+---
+- name: Mock SLR
+  hosts: app
+  vars:
+    ci_cd_namespace: kevin-ci-cd
+    dev_namespace: kevin-dev
+    demo_namespace: kevin-demo
+    app_name: httpd-sample
+    build:
+      GIT_SOURCE_URI: https://github.com/mcanoy/httpd-ex.git
+      PIPELINE_SOURCE_REPOSITORY_URL: https://github.com/mcanoy/httpd-ex.git
+      PIPELINE_SOURCE_REPOSITORY_REF: ocp-jenkins
+      NAME: "{{ app_name }}" 
+      S2I_BASE_IMAGE: httpd:2.4
+    dev_deploy:
+      NAME: "{{ app_name }}"
+      DEPLOY_IMAGE_STREAM_TAG_NAME: deployed
+    demo_deploy:
+      NAME: "{{ app_name }}" 
+      DEPLOY_IMAGE_STREAM_TAG_NAME: deployed
+  tasks:
+    - include_role:
+        name: openshift-applier/roles/openshift-applier

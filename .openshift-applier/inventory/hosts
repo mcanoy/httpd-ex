@@ -1,0 +1,3 @@
+[app]
+httpd-sample-inventory ansible_connection=local
+

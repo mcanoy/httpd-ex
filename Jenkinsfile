@@ -52,7 +52,7 @@ pipeline {
 
   post {
     always {
-      slackBuildResult(currentBuild.currentResult)
+      echo "Finished"
     }
   } 
 
