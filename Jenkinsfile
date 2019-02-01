@@ -14,7 +14,7 @@ pipeline {
 
     stage('Container Build'){
       steps {
-        patchBuildConfigOutputLabels(bcName: "${APP_NAME}")
+        patchBuildConfigOutputLabels(bcName: "${APP_NAME}", domainPrefix: "org.mcanoy")
         script {
           openshift.withCluster () {
             openshift.startBuild( "${env.APP_NAME} --from-dir=${env.SOURCE_CONTEXT_DIR} -w" )
