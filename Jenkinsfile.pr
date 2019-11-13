@@ -1,4 +1,5 @@
 pipeline {
+    agent { "ios" }
     stages {
         stage('mellon') {
             steps {
