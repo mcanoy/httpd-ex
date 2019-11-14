@@ -1,5 +1,5 @@
 pipeline {
-    agent { label "jenkins-slave-ios" }
+    agent none
     stages {
         stage('mellon') {
             steps {
