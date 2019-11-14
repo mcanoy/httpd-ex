@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('mellon') {
             steps {
+                echo sh(script: 'env|sort', returnStdout: true)
                 echo ' hola !!'
             }
         }
